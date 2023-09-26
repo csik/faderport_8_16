@@ -26,7 +26,7 @@ BUTTONS = [
     Button(name='Read', press=10, light=13),
     Button(name='Write', press=9, light=14),
     Button(name='Touch', press=8, light=15),
-    Button(name='Off', press=23, light=16),
+    Button(name='Off', press=79, light=16),
     Button(name='Undo', press=14, light=9),
     Button(name='Trns', press=13, light=10),
     Button(name='Proj', press=12, light=11),
@@ -36,7 +36,7 @@ BUTTONS = [
     Button(name='User', press=0, light=7),
     Button(name='Loop', press=15, light=8),
     Button(name='Record', press=7, light=0),
-    Button(name='Play', press=6, light=1),
+    Button(name='Play', press=94, light=1),
     Button(name='Stop', press=5, light=2),
     Button(name='Fast Fwd', press=4, light=3),
     Button(name='Rewind', press=3, light=4)
@@ -184,11 +184,13 @@ class FaderPort(ABC):
                 self.on_fader_touch(msg.value != 0)
         elif msg.type == 'control_change' and msg.control == 0:
             self._msb = msg.value
-        elif msg.type == 'control_change' and msg.control == 32:
-            self._fader = (self._msb << 7 | msg.value) >> 4
-            self.on_fader(self._fader)
         elif msg.type == 'pitchwheel':
-            self.on_rotary(1 if msg.pitch < 0 else -1)
+            self._fader = msg.pitch
+            self.on_fader(self._fader)
+            #print(f"fader {msg.channel} = {msg.pitch}")
+            self.outport.send(mido.Message('pitchwheel',channel=msg.channel+1, pitch=msg.pitch))
+        #elif msg.type == 'pitchwheel':
+        #    self.on_rotary(1 if msg.pitch < 0 else -1)
         else:
             print('Unhandled:', msg)
 
@@ -431,6 +433,7 @@ class TestFaderPort(FaderPort):
 
     def on_fader(self, value):
         print(f"Fader: {self.fader}")
+        print(value)
 
 
 def consume(iterator, n):  # Copied consume From the itertool docs
