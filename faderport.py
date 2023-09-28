@@ -1,12 +1,17 @@
 import collections
 from itertools import cycle, islice
-from collections import namedtuple
+from typing import NamedTuple
 from abc import ABC, abstractmethod
 import time
 
 import mido
 
-Button = namedtuple('Button', ['name', 'press', 'light'])
+# Button = namedtuple('Button', ['name', 'press', 'light'])
+
+class Button(NamedTuple):
+    name: str
+    press: int
+    light: str
 Button.__doc__ = "FaderPort button details."
 Button.name.__doc__ = "Button name, usually what's written on the physical button."
 Button.press.__doc__ = "MIDI note sent when button is pressed and released."
@@ -16,6 +21,96 @@ Button.light.__doc__ = "MIDI note to send to illuminate the button."
 # the top to the bottom. Changing the order will mess up the pattern :-(
 
 BUTTONS = [
+
+    # General Controls (left side)
+    Button(name='Pan_Param', press='20', light='na'),
+    Button(name='Arm', press='00', light='LED'),
+    Button(name='Solo', press='Clear', light='01'), LED
+    Button(name='Mute', press='Clear', light='02'), LED
+    Button(name='Bypass', press='03', light='RGB'),
+    Button(name='Macro', press='04', light='RGB'),
+    Button(name='Link', press='05', light='RGB'),
+    Button(name='Shift_Left', press='06', light='LED'),
+
+    # Channel Strip Controls
+    Button(name='Solo_1', press='08', light='LED'),
+    Button(name='Solo_2', press='09', light='LED'),
+    Button(name='Solo_3', press='0A', light='LED'),
+    Button(name='Solo_4', press='0B', light='LED'),
+    Button(name='Solo_5', press='0C', light='LED'),
+    Button(name='Solo_6', press='0D', light='LED'),
+    Button(name='Solo_7', press='0E', light='LED'),
+    Button(name='Solo_8', press='0F', light='LED'),
+    Button(name='Mute_1', press='10', light='LED'),
+    Button(name='Mute_2', press='11', light='LED'),
+    Button(name='Mute_3', press='12', light='LED'),
+    Button(name='Mute_4', press='13', light='LED'),
+    Button(name='Mute_5', press='14', light='LED'),
+    Button(name='Mute_6', press='15', light='LED'),
+    Button(name='Mute_7', press='16', light='LED'),
+    Button(name='Mute_8', press='17', light='LED'),
+    Button(name='Select_1', press='18', light='RGB'),
+    Button(name='Select_2', press='19', light='RGB'),
+    Button(name='Select_3', press='1A', light='RGB'),
+    Button(name='Select_4', press='1B', light='RGB'),
+    Button(name='Select_5', press='1C', light='RGB'),
+    Button(name='Select_6', press='1D', light='RGB'),
+    Button(name='Select_7', press='1E', light='RGB'),
+    Button(name='Select_8', press='1F', light='RGB'),
+    Button(name='Fader_Touch_1', press='68', light='na'),
+    Button(name='Fader_Touch_2', press='69', light='na'),
+    Button(name='Fader_Touch_3', press='6A', light='na'),
+    Button(name='Fader_Touch_4', press='6B', light='na'),
+    Button(name='Fader_Touch_5', press='6C', light='na'),
+    Button(name='Fader_Touch_6', press='6D', light='na'),
+    Button(name='Fader_Touch_7', press='6E', light='na'),
+    Button(name='Fader_Touch_8', press='6F', light='na'),
+
+    # Fader Mode Buttons
+    Button(name='Track', press='28', light='LED'),
+    Button(name='Edit_Plugins', press='2B', light='LED'),
+    Button(name='Send', press='29', light='LED'),
+    Button(name='Pan', press='2A', light='LED'),
+
+    # Session Navigator
+    Button(name='Prev', press='2E', light='LED'),
+    Button(name='Navigator', press='53', light='na'),
+    Button(name='Next', press='2F', light='LED'),
+    Button(name='Channel', press='36', light='LED'),
+    Button(name='Zoom', press='37', light='LED'),
+    Button(name='Scroll', press='38', light='LED'),
+    Button(name='Bank', press='39', light='LED'),
+    Button(name='Master', press='3A', light='LED'),
+    Button(name='Click', press='3B', light='LED'),
+    Button(name='Section', press='3C', light='LED'),
+    Button(name='Marker', press='3D', light='LED'),
+
+    # Mix Management
+    Button(name='Audio', press='3E', light='RGB'),
+    Button(name='VI', press='3F', light='RGB'),
+    Button(name='Bus', press='40', light='RGB'),
+    Button(name='VCA', press='41', light='RGB'),
+    Button(name='All', press='42', light='RGB'),
+    Button(name='shift_Right', press='46', light='LED'),
+
+    # Automation
+    Button(name='Read', press='4A', light='RGB'),
+    Button(name='Write', press='4B', light='RGB'),
+    Button(name='Trim', press='4C', light='RGB'),
+    Button(name='Touch', press='4D', light='RGB'),
+    Button(name='Latch', press='4E', light='RGB'),
+    Button(name='Off', press='4F', light='RGB'),
+
+    # Transport
+    Button(name='Loop', press='56', light='LED'),
+    Button(name='Rewind', press='5B', light='LED'),
+    Button(name='Fast_Forward', press='5C', light='LED'),
+    Button(name='Stop', press='5D', light='LED'),
+    Button(name='Play', press='5E', light='LED'),
+    Button(name='Record', press='5F', light='LED'),
+    Button(name='Footswitch', press='66', light='na'),
+
+    # OLDuu
     Button(name='Mute', press=18, light=21),
     Button(name='Solo', press=17, light=22),
     Button(name='Rec', press=16, light=23),
