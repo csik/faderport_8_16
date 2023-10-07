@@ -23,122 +23,96 @@ Button.light.__doc__ = "MIDI note to send to illuminate the button."
 BUTTONS = [
 
     # General Controls (left side)
-    Button(name='Pan_Param', press='20', light='na'),
-    Button(name='Arm', press='00', light='LED'),
-    Button(name='Solo', press='Clear', light='01'), LED
-    Button(name='Mute', press='Clear', light='02'), LED
-    Button(name='Bypass', press='03', light='RGB'),
-    Button(name='Macro', press='04', light='RGB'),
-    Button(name='Link', press='05', light='RGB'),
-    Button(name='Shift_Left', press='06', light='LED'),
+    Button(name='Pan_Param',    press=0x20, light='na'),
+    Button(name='Arm',          press=0x00, light='LED'),
+    Button(name='Solo_Clear',   press=0x01, light='LED'),
+    Button(name='Mute_Clear',   press=0x02, light='LED'),
+    Button(name='Bypass',       press=0x03, light='RGB'),
+    Button(name='Macro',        press=0x04, light='RGB'),
+    Button(name='Link',         press=0x05, light='RGB'),
+    Button(name='Shift_Right',   press=0x06, light='LED'),
 
     # Channel Strip Controls
-    Button(name='Solo_1', press='08', light='LED'),
-    Button(name='Solo_2', press='09', light='LED'),
-    Button(name='Solo_3', press='0A', light='LED'),
-    Button(name='Solo_4', press='0B', light='LED'),
-    Button(name='Solo_5', press='0C', light='LED'),
-    Button(name='Solo_6', press='0D', light='LED'),
-    Button(name='Solo_7', press='0E', light='LED'),
-    Button(name='Solo_8', press='0F', light='LED'),
-    Button(name='Mute_1', press='10', light='LED'),
-    Button(name='Mute_2', press='11', light='LED'),
-    Button(name='Mute_3', press='12', light='LED'),
-    Button(name='Mute_4', press='13', light='LED'),
-    Button(name='Mute_5', press='14', light='LED'),
-    Button(name='Mute_6', press='15', light='LED'),
-    Button(name='Mute_7', press='16', light='LED'),
-    Button(name='Mute_8', press='17', light='LED'),
-    Button(name='Select_1', press='18', light='RGB'),
-    Button(name='Select_2', press='19', light='RGB'),
-    Button(name='Select_3', press='1A', light='RGB'),
-    Button(name='Select_4', press='1B', light='RGB'),
-    Button(name='Select_5', press='1C', light='RGB'),
-    Button(name='Select_6', press='1D', light='RGB'),
-    Button(name='Select_7', press='1E', light='RGB'),
-    Button(name='Select_8', press='1F', light='RGB'),
-    Button(name='Fader_Touch_1', press='68', light='na'),
-    Button(name='Fader_Touch_2', press='69', light='na'),
-    Button(name='Fader_Touch_3', press='6A', light='na'),
-    Button(name='Fader_Touch_4', press='6B', light='na'),
-    Button(name='Fader_Touch_5', press='6C', light='na'),
-    Button(name='Fader_Touch_6', press='6D', light='na'),
-    Button(name='Fader_Touch_7', press='6E', light='na'),
-    Button(name='Fader_Touch_8', press='6F', light='na'),
+    Button(name='Solo_1', press=0x08, light='LED'),
+    Button(name='Solo_2', press=0x09, light='LED'),
+    Button(name='Solo_3', press=0x0A, light='LED'),
+    Button(name='Solo_4', press=0x0B, light='LED'),
+    Button(name='Solo_5', press=0x0C, light='LED'),
+    Button(name='Solo_6', press=0x0D, light='LED'),
+    Button(name='Solo_7', press=0x0E, light='LED'),
+    Button(name='Solo_8', press=0x0F, light='LED'),
+    Button(name='Mute_1', press=0x10, light='LED'),
+    Button(name='Mute_2', press=0x11, light='LED'),
+    Button(name='Mute_3', press=0x12, light='LED'),
+    Button(name='Mute_4', press=0x13, light='LED'),
+    Button(name='Mute_5', press=0x14, light='LED'),
+    Button(name='Mute_6', press=0x15, light='LED'),
+    Button(name='Mute_7', press=0x16, light='LED'),
+    Button(name='Mute_8', press=0x17, light='LED'),
+    Button(name='Select_1', press=0x18, light='RGB'),
+    Button(name='Select_2', press=0x19, light='RGB'),
+    Button(name='Select_3', press=0x1A, light='RGB'),
+    Button(name='Select_4', press=0x1B, light='RGB'),
+    Button(name='Select_5', press=0x1C, light='RGB'),
+    Button(name='Select_6', press=0x1D, light='RGB'),
+    Button(name='Select_7', press=0x1E, light='RGB'),
+    Button(name='Select_8', press=0x1F, light='RGB'),
+    Button(name='Fader_Touch_1', press=0x68, light='na'),
+    Button(name='Fader_Touch_2', press=0x69, light='na'),
+    Button(name='Fader_Touch_3', press=0x6A, light='na'),
+    Button(name='Fader_Touch_4', press=0x6B, light='na'),
+    Button(name='Fader_Touch_5', press=0x6C, light='na'),
+    Button(name='Fader_Touch_6', press=0x6D, light='na'),
+    Button(name='Fader_Touch_7', press=0x6E, light='na'),
+    Button(name='Fader_Touch_8', press=0x6F, light='na'),
 
     # Fader Mode Buttons
-    Button(name='Track', press='28', light='LED'),
-    Button(name='Edit_Plugins', press='2B', light='LED'),
-    Button(name='Send', press='29', light='LED'),
-    Button(name='Pan', press='2A', light='LED'),
+    Button(name='Track',        press=0x28, light='LED'),
+    Button(name='Edit_Plugins', press=0x2B, light='LED'),
+    Button(name='Send',         press=0x29, light='LED'),
+    Button(name='Pan',          press=0x2A, light='LED'),
 
     # Session Navigator
-    Button(name='Prev', press='2E', light='LED'),
-    Button(name='Navigator', press='53', light='na'),
-    Button(name='Next', press='2F', light='LED'),
-    Button(name='Channel', press='36', light='LED'),
-    Button(name='Zoom', press='37', light='LED'),
-    Button(name='Scroll', press='38', light='LED'),
-    Button(name='Bank', press='39', light='LED'),
-    Button(name='Master', press='3A', light='LED'),
-    Button(name='Click', press='3B', light='LED'),
-    Button(name='Section', press='3C', light='LED'),
-    Button(name='Marker', press='3D', light='LED'),
+    Button(name='Prev',         press=0x2E, light='LED'),
+    Button(name='Navigator',    press=0x53, light='na'),
+    Button(name='Next',         press=0x2F, light='LED'),
+    Button(name='Channel',      press=0x36, light='LED'),
+    Button(name='Zoom',         press=0x37, light='LED'),
+    Button(name='Scroll',       press=0x38, light='LED'),
+    Button(name='Bank',         press=0x39, light='LED'),
+    Button(name='Master',       press=0x3A, light='LED'),
+    Button(name='Click',        press=0x3B, light='LED'),
+    Button(name='Section',      press=0x3C, light='LED'),
+    Button(name='Marker',       press=0x3D, light='LED'),
 
     # Mix Management
-    Button(name='Audio', press='3E', light='RGB'),
-    Button(name='VI', press='3F', light='RGB'),
-    Button(name='Bus', press='40', light='RGB'),
-    Button(name='VCA', press='41', light='RGB'),
-    Button(name='All', press='42', light='RGB'),
-    Button(name='shift_Right', press='46', light='LED'),
+    Button(name='Audio',        press=0x3E, light='RGB'),
+    Button(name='VI',           press=0x3F, light='RGB'),
+    Button(name='Bus',          press=0x40, light='RGB'),
+    Button(name='VCA',          press=0x41, light='RGB'),
+    Button(name='All',          press=0x42, light='RGB'),
+    Button(name='Shift_Left',  press=0x46, light='LED'),
 
     # Automation
-    Button(name='Read', press='4A', light='RGB'),
-    Button(name='Write', press='4B', light='RGB'),
-    Button(name='Trim', press='4C', light='RGB'),
-    Button(name='Touch', press='4D', light='RGB'),
-    Button(name='Latch', press='4E', light='RGB'),
-    Button(name='Off', press='4F', light='RGB'),
+    Button(name='Read',         press=0x4A, light='RGB'),
+    Button(name='Write',        press=0x4B, light='RGB'),
+    Button(name='Trim',         press=0x4C, light='RGB'),
+    Button(name='Touch',        press=0x4D, light='RGB'),
+    Button(name='Latch',        press=0x4E, light='RGB'),
+    Button(name='Off',          press=0x4F, light='RGB'),
 
     # Transport
-    Button(name='Loop', press='56', light='LED'),
-    Button(name='Rewind', press='5B', light='LED'),
-    Button(name='Fast_Forward', press='5C', light='LED'),
-    Button(name='Stop', press='5D', light='LED'),
-    Button(name='Play', press='5E', light='LED'),
-    Button(name='Record', press='5F', light='LED'),
-    Button(name='Footswitch', press='66', light='na'),
+    Button(name='Loop',         press=0x56, light='LED'),
+    Button(name='Rewind',       press=0x5B, light='LED'),
+    Button(name='Fast_Forward', press=0x5C, light='LED'),
+    Button(name='Stop',         press=0x5D, light='LED'),
+    Button(name='Play',         press=0x5E, light='LED'),
+    Button(name='Record',       press=0x5F, light='LED'),
+    Button(name='Footswitch',   press=0x66, light='na'),
 
-    # OLDuu
-    Button(name='Mute', press=18, light=21),
-    Button(name='Solo', press=17, light=22),
-    Button(name='Rec', press=16, light=23),
-    Button(name='Output', press=22, light=17),
-    Button(name='Chan Up', press=21, light=18),
-    Button(name='Bank', press=20, light=19),
-    Button(name='Chan Down', press=19, light=20),
-    Button(name='Read', press=10, light=13),
-    Button(name='Write', press=9, light=14),
-    Button(name='Touch', press=8, light=15),
-    Button(name='Off', press=79, light=16),
-    Button(name='Undo', press=14, light=9),
-    Button(name='Trns', press=13, light=10),
-    Button(name='Proj', press=12, light=11),
-    Button(name='Mix', press=11, light=12),
-    Button(name='Shift', press=2, light=5),
-    Button(name='Punch', press=1, light=6),
-    Button(name='User', press=0, light=7),
-    Button(name='Loop', press=15, light=8),
-    Button(name='Record', press=7, light=0),
-    Button(name='Play', press=94, light=1),
-    Button(name='Stop', press=5, light=2),
-    Button(name='Fast Fwd', press=4, light=3),
-    Button(name='Rewind', press=3, light=4)
-]
+   ]
 
 _button_from_name = {x.name: x for x in BUTTONS}
-_button_from_name["Rec Arm"] = _button_from_name["Rec"]  # Add an alias
 _button_from_press = {x.press: x for x in BUTTONS}
 
 
@@ -159,28 +133,6 @@ def button_from_press(press: int) -> Button:
     """
     return _button_from_press.get(press, None)
 
-
-# characters maps characters to the indices of the buttons that will
-# display that character (as a matrix) when lit.
-CHARACTERS = {
-    '0': (0, 1, 3, 6, 7, 9, 10, 11, 13, 14, 15, 18, 20, 21, 22),
-    '1': (1, 4, 5, 9, 12, 17, 19, 20, 21, 22),
-    '2': (0, 1, 3, 6, 10, 12, 16, 19, 20, 21, 22, 23),
-    '3': (0, 1, 3, 6, 9, 11, 15, 18, 20, 21, 22),
-    '4': (1, 4, 5, 7, 9, 11, 12, 13, 14, 17, 20, 21),
-    '5': (0, 1, 2, 6, 7, 8, 9, 11, 15, 18, 20, 21, 22),
-    # '5': (0, 1, 2, 5, 8, 9, 11, 16, 18, 20, 21),
-    '6': (0, 1, 2, 6, 7, 8, 9, 11, 14, 15, 18, 20, 21, 22),
-    '7': (3, 4, 5, 6, 10, 12, 16, 23),
-    '8': (0, 1, 3, 6, 8, 9, 11, 14, 15, 18, 20, 21, 22),
-    '9': (0, 1, 3, 6, 8, 9, 10, 11, 15, 18, 20, 21, 22),
-    'A': (4, 5, 7, 10, 11, 12, 13, 14, 15, 18, 19, 23),
-    'B': (4, 5, 6, 7, 10, 12, 13, 14, 15, 18, 20, 21, 22, 23),
-    'C': (4, 5, 7, 10, 14, 15, 18, 20, 21, 22),
-    'D': (4, 5, 6, 7, 10, 11, 14, 15, 18, 20, 21, 22, 23),
-    'E': (4, 5, 6, 7, 13, 14, 15, 20, 21, 22, 23),
-    'F': (4, 5, 6, 7, 13, 14, 15, 23)
-}
 
 
 class FaderPort(ABC):
@@ -224,7 +176,7 @@ class FaderPort(ABC):
     def __init__(self):
         self.inport = None
         self.outport = None
-        self._fader = 0
+        self._fader = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         self._msb = 0
 
     def __enter__(self):
@@ -271,23 +223,34 @@ class FaderPort(ABC):
 
     def _message_callback(self, msg):
         """Callback function to handle incoming MIDI messages."""
-        if msg.type == 'polytouch':
-            button = button_from_press(msg.note)
-            if button:
-                self.on_button(button, msg.value != 0)
-            elif msg.note == 127:
-                self.on_fader_touch(msg.value != 0)
-        elif msg.type == 'control_change' and msg.control == 0:
-            self._msb = msg.value
-        elif msg.type == 'pitchwheel':
-            self._fader = msg.pitch
-            self.on_fader(self._fader)
-            #print(f"fader {msg.channel} = {msg.pitch}")
-            self.outport.send(mido.Message('pitchwheel',channel=msg.channel+1, pitch=msg.pitch))
-        #elif msg.type == 'pitchwheel':
-        #    self.on_rotary(1 if msg.pitch < 0 else -1)
-        else:
-            print('Unhandled:', msg)
+        try:
+            if msg.type == 'note_on':
+                try:
+                    print(msg)
+                    button = button_from_press(msg.note)
+                    print(button.name)
+                    if button:
+                        self.on_button(button, msg.velocity != 0)
+                except:
+                    print("exception in note_on")
+            elif msg.type == 'control_change':
+                print("control change")
+            elif msg.type == 'pitchwheel':
+                try:
+                    # print("in pitchwheel")
+                    # print(f"pitch = {msg.pitch} channel = {msg.channel}")
+                    self._fader[msg.channel] = msg.pitch
+                    self.on_fader(pitch=msg.pitch, channel=msg.channel)
+                    # print(f"fader {msg.channel} = {msg.pitch}")
+                    # test by echoing to fader to the right
+                    self.outport.send(mido.Message('pitchwheel',channel=msg.channel+1, pitch=msg.pitch))
+                except:
+                    print("exception in pitchwheel")
+            else:
+                print('Unhandled:', msg)
+        except:
+            print('Exception!')
+
 
     @abstractmethod
     def on_rotary(self, direction: int):
@@ -315,7 +278,7 @@ class FaderPort(ABC):
         pass
 
     @abstractmethod
-    def on_fader(self, value: int):
+    def on_fader(self, pitch: int, channel: int):
         """
         Called when the Fader has been moved.
         :param value: The new fader value.
@@ -323,25 +286,27 @@ class FaderPort(ABC):
         pass
 
     @property
-    def fader(self) -> int:
-        """"Returns the position of the Fader in the range 0-1023"""
-        return self._fader
+    def fader(self, channel) -> int:
+        """"Returns the position of the Fader in the range -8192 to 8192"""
+        return self._fader[channel]
 
     @fader.setter
-    def fader(self, value: int):
-        """Move the fader to a new position in the range 0 to 1023."""
-        self._fader = int(value) if 0 < value < 1024 else 0
-        self.outport.send(mido.Message('control_change', control=0,
-                                       value=self._fader >> 7))
-        self.outport.send(mido.Message('control_change', control=32,
-                                       value=self._fader & 0x7F))
+    def fader(self, value: list):
+        """Move the fader to a new position in the range -8192 to 8192."""
+        pitch, channel = value
+        self.outport.send(mido.Message('pitchwheel',channel=channel, pitch=pitch))
+        #self._fader = int(value) if 0 < value < 1024 else 0
+        #self.outport.send(mido.Message('control_change', control=0,
+        #                               value=self._fader >> 7))
+        #self.outport.send(mido.Message('control_change', control=32,
+        #                               value=self._fader & 0x7F))
 
     def light_on(self, button: Button):
         """Turn the light on for the given Button.
 
         NOTE! If yuo turn the "Off" button light on, the fader won't
         report value updates when it's moved."""
-        self.outport.send(mido.Message('polytouch', note=button.light, value=1))
+        self.outport.send(mido.Message('note_on', note=button.light, value=1))
 
     def light_off(self, button: Button):
         """Turn the light off for the given Button"""
@@ -409,6 +374,23 @@ class FaderPort(ABC):
             time.sleep(interval * 0.66667)
             self.all_off()
             time.sleep(interval * 0.33333)
+
+    def all_up(self):
+        for x in range(0,8):
+            self.fader = (8191,x)
+
+    def all_down(self):
+        for x in range(0,8):
+            self.fader = (-8192,x)
+
+    def all_zero(self):
+        for x in range(0,8):
+            self.fader = (0,x)
+
+    def scribbletest(self):
+        from scribbledata import d
+        for i in d:
+            self.outport.send(mido.Message('sysex', data=i))
 
     def chase(self, duration: float = 0.08, num_lights: int = 2, ticks: int = 20):
         """
@@ -488,7 +470,8 @@ class TestFaderPort(FaderPort):
 
     def __init__(self):
         super().__init__()
-        self._shift = False
+        self._left_shift = False
+        self._right_shift = False
         self.cycling = False
         self.should_exit = False
 
@@ -513,23 +496,25 @@ class TestFaderPort(FaderPort):
 
     def on_button(self, button, state):
         print(f"Button: {button.name} {'pressed' if state else 'released'}")
-        if button.name == 'Shift':
-            self._shift = not self._shift
+        if button.name == 'Left_Shift':
+            self._left_shift = state
+        if button.name == 'Right_Shift':
+            self._right_shift = state
         if button.name == 'Off' and not state:
             self.should_exit = True
-        if not self.cycling:
-            if state:
-                self.light_on(button)
-            else:
-                self.light_off(button)
+        # if not self.cycling:
+        #     if state:
+        #         self.light_on(button)
+        #     else:
+        #         self.light_off(button)
 
     def on_fader_touch(self, state):
-        print(f"Fader: {'touched' if state else 'released'}")
+        # print(f"Fader: {'touched' if state else 'released'}")
+        pass
 
-    def on_fader(self, value):
-        print(f"Fader: {self.fader}")
-        print(value)
-
+    def on_fader(self, pitch, channel):
+        # print(f"Fader {channel}: {self._fader[channel]}")
+        pass
 
 def consume(iterator, n):  # Copied consume From the itertool docs
     """Advance the iterator n-steps ahead. If n is none, consume entirely."""
